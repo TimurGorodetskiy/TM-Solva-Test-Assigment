@@ -1,11 +1,20 @@
 import { Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<h1>Welcome Home</h1>} />
-        <Route path='about' element={<h1>About Project</h1>} />
+        <Route
+          path='/'
+          element={
+            <PrivateRoute>
+              <h1>HOME PAGe</h1>
+            </PrivateRoute>
+          }
+        />
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
     </>
   );
